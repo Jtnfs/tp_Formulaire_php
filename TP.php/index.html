@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Formulaire HTML</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; max-width: 600px; }
+        div { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="email"], input[type="password"], select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        fieldset { border: 1px solid #ccc; padding: 10px; }
+        legend { font-weight: bold; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>Formulaire d'inscription</h2>
+    <p>Veuillez remplir tous les champs requis.</p>
+
+    <form action="traitement.php" method="POST">
+
+        <div>
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" 
+                   required 
+                   minlength="2" 
+                   maxlength="50">
+        </div>
+
+        <div>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" 
+                   required>
+        </div>
+
+        <div>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" 
+                   required 
+                   minlength="8">
+        </div>
+
+        <fieldset>
+            <legend>Sexe :</legend>
+            <div>
+                <input type="radio" id="sexe_h" name="sexe" value="H" required>
+                <label for="sexe_h" style="display:inline;">Homme</label>
+            </div>
+            <div>
+                <input type="radio" id="sexe_f" name="sexe" value="F">
+                <label for="sexe_f" style="display:inline;">Femme</label>
+            </div>
+        </fieldset>
+
+        <div>
+            <label for="ville">Ville :</label>
+            <input type="text" id="ville" name="ville" 
+                   required>
+        </div>
+
+        <fieldset>
+            <legend>Loisirs (choix multiples) :</legend>
+            <div>
+                <input type="checkbox" id="loisir_sport" name="loisirs[]" value="sport">
+                <label for="loisir_sport" style="display:inline;">Sport</label>
+            </div>
+            <div>
+                <input type="checkbox" id="loisir_lecture" name="loisirs[]" value="lecture">
+                <label for="loisir_lecture" style="display:inline;">Lecture</label>
+            </div>
+            <div>
+                <input type="checkbox" id="loisir_jeux" name="loisirs[]" value="jeux">
+                <label for="loisir_jeux" style="display:inline;">Jeux vidéo</label>
+            </div>
+        </fieldset>
+
+        <div>
+            <label for="animaux">Animal de compagnie :</label>
+            <select id="animaux" name="animaux">
+                <option value="">-- Veuillez choisir --</option>
+                <option value="chien">Chien</option>
+                <option value="chat">Chat</option>
+                <option value="oiseau">Oiseau</option>
+                <option value="poisson">Poisson</option>
+                <option value="aucun">Aucun</option>
+            </select>
+        </div>
+
+        <hr>
+
+        <button type="submit">Envoyer</button>
+
+    </form>
+
+</body>
+</html>
